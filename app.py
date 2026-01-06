@@ -10,13 +10,13 @@ from difflib import SequenceMatcher
 
 
 # Install xlsxwriter if not already present
-try:
-    import xlsxwriter
-except ImportError:
-    # pass  # Original code had a 'pass' here after the previous fix
-    import sys, subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "xlsxwriter"]) 
-    import xlsxwriter
+# try:
+#     import xlsxwriter
+# except ImportError:
+#     # pass  # Original code had a 'pass' here after the previous fix
+#     import sys, subprocess
+#     subprocess.check_call([sys.executable, "-m", "pip", "install", "xlsxwriter"]) 
+#     import xlsxwriter
 
 # ------------------ CONFIG ------------------
 # # ERP_FILE     = r"/content/GSTR2_RECON_SEP_2025.xlsx"
