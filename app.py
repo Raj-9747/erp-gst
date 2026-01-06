@@ -7,6 +7,8 @@ from datetime import datetime
 from typing import List, Optional, Tuple
 import os
 from difflib import SequenceMatcher
+import xlsxwriter 
+import openpyxl  
 
 
 # Install xlsxwriter if not already present
