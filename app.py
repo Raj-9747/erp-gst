@@ -26,9 +26,9 @@ st.title("📊 GST Reconciliation Tool")
 
 with st.sidebar:
     st.header("Upload Files")
-    uploaded_erp = st.file_uploader("1. Upload ERP Excel File", type=["xlsx"])
-    uploaded_portal = st.file_uploader("2. Upload Portal Excel File", type=["xlsx"])
-    uploaded_overdue = st.file_uploader("3. Upload Previous Overdue File (Optional)", type=["xlsx"])
+    uploaded_erp = st.file_uploader("1. Upload ERP Excel File", type=["xls","xlsx"])
+    uploaded_portal = st.file_uploader("2. Upload Portal Excel File", type=["xls","xlsx"])
+    uploaded_overdue = st.file_uploader("3. Upload Previous Overdue File (Optional)", type=["xls","xlsx"])
     
     PORTAL_SHEET = st.text_input("Portal Sheet Name", value="B2B")
     run_recon = st.button("🚀 Run Reconciliation")
