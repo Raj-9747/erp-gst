@@ -2,3 +2,4 @@ pandas
 numpy
 xlsxwriter
 openpyxl
+xlrd>=2.0.1
