@@ -173,6 +173,7 @@ def _pick_specific_col(cols: List[str], keywords: List[str]) -> Optional[str]:
     return None
 
 def load_erp(path: str) -> pd.DataFrame:
+    engine = get_excel_engine(path)
     xls = pd.ExcelFile(path)
     first = xls.sheet_names[0]
     raw = pd.read_excel(
@@ -246,6 +247,7 @@ def load_erp(path: str) -> pd.DataFrame:
     return out
 
 def load_portal(path: str, sheet: str) -> Tuple[pd.DataFrame, pd.DataFrame, str]:
+    engine = get_excel_engine(path)
     try:
         df_display = _rebuild_two_row_header(path, sheet)
     except Exception:
