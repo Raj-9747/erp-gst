@@ -250,7 +250,6 @@ def load_portal(path: str, sheet: str) -> Tuple[pd.DataFrame, pd.DataFrame, str]
     try:
         df_display = _rebuild_two_row_header(path, sheet)
     except Exception:
-        xls = pd.ExcelFile(path)
         raw = pd.read_excel(xls, sheet_name=sheet, header=None)
         hdr = find_header_row(raw, ["invoice", "taxable"]) or 0
         df_display = pd.read_excel(path, sheet_name=sheet, header=hdr)
