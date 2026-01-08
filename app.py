@@ -50,6 +50,10 @@ OVERDUE_FILE_PATH = f"GST_Recon_Overdue_Bills_{timestamp}.xlsx"
 
 
 # ------------------ HELPERS ------------------
+
+def get_excel_engine(file):
+    return "xlrd" if file.name.lower().endswith(".xls") else "openpyxl"
+
 def _num(x) -> float:
     if pd.isna(x):
         return np.nan
@@ -171,7 +175,12 @@ def _pick_specific_col(cols: List[str], keywords: List[str]) -> Optional[str]:
 def load_erp(path: str) -> pd.DataFrame:
     xls = pd.ExcelFile(path)
     first = xls.sheet_names[0]
-    raw = pd.read_excel(path, sheet_name=first, header=None)
+    raw = pd.read_excel(
+        path,
+        sheet_name=first,
+        header=None,
+        engine=engine
+    )
     hdr = find_header_row(raw, ["invoice"]) or 0
     df  = pd.read_excel(path, sheet_name=first, header=hdr)
     df.columns = [str(c).strip() for c in df.columns]
